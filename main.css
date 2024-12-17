@@ -124,6 +124,9 @@
     width: 65%;
     height: 100vh;
   }
+input:focus{
+    outline: none;
+  }
 
   @media (max-width: 1380px) {
     #base-container {
