@@ -4,11 +4,16 @@ const radiop = document.getElementById("radio-p");
 const radio = document.getElementsByName("paytype");
 const array = ["amount", "terms", "rate"];
 
-array.forEach((i) => {
-  const div = document.getElementById(i + "-div");
+function getElementsByIdAndSelectors(id) {
+  const div = document.getElementById(id + "-div");
   const p = div.querySelector("p");
   const spanElement = div.querySelector("span");
   const inputElement = div.querySelector("input");
+  return { div, spanElement, inputElement, p };
+}
+
+array.forEach((i) => {
+  const { div, spanElement, inputElement, p } = getElementsByIdAndSelectors(i);
   inputElement.addEventListener("input", () => {
     const hasValue = inputElement.value;
     if (spanElement.classList.contains("needfield")) {
@@ -38,35 +43,25 @@ radio.forEach((radioButton) => {
 
 function calculate() {
   array.forEach((i) => {
-    const div = document.getElementById(i + "-div");
-    const p = div.querySelector("p");
-    const spanElement = div.querySelector("span");
-    const inputElement = div.querySelector("input");
+    const { div, spanElement, inputElement, p } = getElementsByIdAndSelectors(i);
 
-    if (!inputElement.value) {
-      p.innerHTML = "This field is required";
-      p.classList.remove("d-none");
-      spanElement.classList.add("needfield", "danger-bg");
-      inputElement.classList.add("danger-border");
-    } else {
-      p.classList.add("d-none");
-      spanElement.classList.remove("danger-bg");
-      inputElement.classList.remove("danger-border");
-    }
+    const hasValue = inputElement.value;
+    p.innerHTML = !hasValue ? "This field is required" : "" ;
+    p.classList.toggle("d-none",hasValue);
+    inputElement.classList.toggle("danger-border",!hasValue);
+    spanElement.classList.toggle("danger-bg",!hasValue);
+    spanElement.classList.toggle("needfield",!hasValue);
   });
+
   let selectedvalue;
   for (let x = 0; x < radio.length; x++) {
     if (radio[x].checked) {
-      if (typeof radio[x].checked !== "undefinded") {
         selectedvalue = radio[x].value;
-      }
     }
 
-    if (selectedvalue) {
-      radiop.classList.add("d-none");
-    } else {
+    radiop.classList.toggle("d-none",!!selectedvalue);
+    if (!selectedvalue) {
       radiop.innerHTML = "This field is required";
-      radiop.classList.remove("d-none");
     }
   }
 
@@ -137,9 +132,7 @@ function setEmpty() {
   });
 
   array.forEach((i) => {
-    const div = document.getElementById(i + "-div");
-    const spanElement = div.querySelector("span");
-    const inputElement = div.querySelector("input");
+    const { div, spanElement, inputElement } = getElementsByIdAndSelectors(i);
 
     spanElement.classList.remove("danger-bg","needfield");
     inputElement.classList.remove("danger-border");
