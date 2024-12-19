@@ -12,11 +12,11 @@ array.forEach((i) => {
     if (spanElement.classList.contains("needfield")) {
       if (inputElement.value) {
         spanElement.classList.remove("danger-bg");
-        inputElement.classList.remove("danger-border","border-danger");
+        inputElement.classList.remove("danger-border");
         p.classList.add("d-none");
       } else {
         spanElement.classList.add("danger-bg");
-        inputElement.classList.add("danger-border","border-danger");
+        inputElement.classList.add("danger-border");
         p.classList.remove("d-none");
       }
     }
