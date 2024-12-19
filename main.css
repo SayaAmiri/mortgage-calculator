@@ -1,149 +1,167 @@
 .attribution {
-    font-size: 11px;
-    text-align: center;
-  }
+  font-size: 11px;
+  text-align: center;
+}
 
-  .attribution a {
-    color: hsl(228, 45%, 44%);
-  }
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
 
-  .limecolor-for-border {
-    border-color: hsl(61, 70%, 52%) !important;
-  }
+.bg-border-lime{
+  background-color: hsl(62, 100%, 93%) !important;
+  border-color: hsl(61, 70%, 52%) !important;
+}
 
-  .limecolor-accent {
-    accent-color: hsl(61, 70%, 52%) !important;
-  }
+* {
+  padding: 0;
+  margin: 0;
+}
 
-  .bg-lightlime {
-    background-color: hsl(62, 100%, 93%) !important;
-  }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-  * {
-    padding: 0;
-    margin: 0;
-  }
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+@font-face {
+  font-weight: 600;
+  font-family: JakartaSans;
+  src: url(assets/fonts/static/PlusJakartaSans-Medium.ttf);
+}
 
-  input[type="number"] {
-    -moz-appearance: textfield;
-  }
+@font-face {
+  font-family: JakartaSans;
+  font-weight: 700;
+  src: url(assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
 
-  @font-face {
-    font-weight: 600;
-    font-family: JakartaSans;
-    src: url(assets/fonts/static/PlusJakartaSans-Medium.ttf);
-  }
+@font-face {
+  font-family: JakartaSans;
+  font-weight: 800;
+  src: url(assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf);
+}
 
-  @font-face {
-    font-family: JakartaSans;
-    font-weight: 700;
-    src: url(assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
-  }
+@font-face {
+  font-family: JakartaSans;
+  font-weight: 900;
+  src: url(assets/fonts/static/PlusJakartaSans-Bold.ttf);
+}
 
-  @font-face {
-    font-family: JakartaSans;
-    font-weight: 800;
-    src: url(assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf);
-  }
+.JakartaSans-600 {
+  font-family: JakartaSans;
+  font-weight: 600;
+}
 
-  @font-face {
-    font-family: JakartaSans;
-    font-weight: 900;
-    src: url(assets/fonts/static/PlusJakartaSans-Bold.ttf);
-  }
+.JakartaSans-700 {
+  font-family: JakartaSans;
+  font-weight: 700;
+}
 
-  .JakartaSans-600 {
-    font-family: JakartaSans;
-    font-weight: 600;
-  }
+.JakartaSans-800 {
+  font-family: JakartaSans;
+  font-weight: 800;
+}
 
-  .JakartaSans-700 {
-    font-family: JakartaSans;
-    font-weight: 700;
-  }
+.JakartaSans-900 {
+  font-family: JakartaSans;
+  font-weight: 900;
+}
 
-  .JakartaSans-800 {
-    font-family: JakartaSans;
-    font-weight: 800;
-  }
+label {
+  opacity: 60%;
+  font-family: JakartaSans;
+  font-weight: 600;
+  white-space: nowrap;
+}
 
-  .JakartaSans-900 {
-    font-family: JakartaSans;
-    font-weight: 900;
-  }
+p {
+  font-size: 14px;
+  font-family: JakartaSans;
+  font-weight: 600;
+}
 
-  label {
-    opacity: 60%;
-    font-family: JakartaSans;
-    font-weight: 600;
-    white-space: nowrap;
-  }
+#clear-all:hover {
+  color: blue;
+  text-decoration: underline;
+}
 
-  p {
-    font-size: 14px;
-    font-family: JakartaSans;
-    font-weight: 600;
-  }
+#amount,
+#terms,
+#rate {
+  border: 1px solid black;
+}
 
-  #clear-all:hover {
-    color: blue;
-    text-decoration: underline;
-  }
+#amount:hover,
+#terms:hover,
+#rate:hover {
+  border: 2px solid black;
+}
 
-  #amount,
-  #terms,
-  #rate {
-    border: 1px solid black;
-  }
+.type-div:hover {
+  border: 2px solid hsl(61, 70%, 52%) !important;
+}
 
-  #amount:hover,
-  #terms:hover,
-  #rate:hover {
-    border: 2px solid black;
-  }
+#calculate {
+  background-color: hsl(61, 70%, 52%);
+}
 
-  .type-div:hover {
-    border: 2px solid hsl(61, 70%, 52%) !important;
-  }
+#calculate:hover {
+  background-color: hsl(61, 77%, 70%) !important;
+}
 
-  #calculate {
-    background-color: hsl(61, 70%, 52%);
-  }
+#base-container {
+  width: 65%;
+  height: 100vh;
+}
 
-  #calculate:hover {
-    background-color: hsl(61, 77%, 70%) !important;
-  }
-
+@media (max-width: 1380px) {
   #base-container {
-    width: 65%;
-    height: 100vh;
+    width: 75%;
   }
-input:focus{
-    outline: none;
-  }
+}
 
-  @media (max-width: 1380px) {
-    #base-container {
-      width: 75%;
-    }
+@media (max-width: 992px) {
+  #base-container {
+    width: 100%;
   }
+}
 
-  @media (max-width: 992px) {
-    #base-container {
-      width: 100%;
-    }
+@media (max-width: 767px) {
+
+  #section1,
+  #section2 {
+    border-radius: 0px !important;
   }
+}
 
-  @media (max-width: 767px) {
+#amount:focus,
+#terms:focus,
+#rate:focus {
+  outline: none;
+  border: 2px solid #ffc107 !important;
+}
 
-    #section1,
-    #section2 {
-      border-radius: 0px !important;
-    }
-  }
+#amount:focus+span,
+#terms:focus+span,
+#rate:focus+span {
+  opacity: 100% !important;
+  color: rgba(0, 0, 0, 0.5);
+  background-color: #ffc107 !important;
+  border: 2px solid #ffc107 !important;
+}
+.type-div input:checked{
+  accent-color: hsl(61, 70%, 52%) !important;
+}
+.danger-bg{
+  opacity: 100% !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: white !important;
+}
+.danger-border{
+  border: 2px solid #dc3545 !important;
+}
