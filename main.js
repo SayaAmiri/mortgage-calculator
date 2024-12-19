@@ -1,6 +1,7 @@
 const emptyCalculate = document.getElementById("empty-calculate");
 const resultCalculate = document.getElementById("result-calculate");
 const radiop = document.getElementById("radio-p");
+const radio = document.getElementsByName("paytype");
 const array = ["amount", "terms", "rate"];
 
 array.forEach((i) => {
@@ -9,37 +10,27 @@ array.forEach((i) => {
   const spanElement = div.querySelector("span");
   const inputElement = div.querySelector("input");
   inputElement.addEventListener("input", () => {
+    const hasValue = inputElement.value;
     if (spanElement.classList.contains("needfield")) {
-      if (inputElement.value) {
-        spanElement.classList.remove("danger-bg");
-        inputElement.classList.remove("danger-border");
-        p.classList.add("d-none");
-      } else {
-        spanElement.classList.add("danger-bg");
-        inputElement.classList.add("danger-border");
-        p.classList.remove("d-none");
-      }
+        spanElement.classList.toggle("danger-bg",!hasValue);
+        inputElement.classList.toggle("danger-border",!hasValue);
+        p.classList.toggle("d-none",hasValue);
     }
   });
   inputElement.addEventListener("blur", () => {
-    if (inputElement.value) {
-      spanElement.classList.remove("needfield");
-    }
+    const hasValue = inputElement.value;
+      spanElement.classList.toggle("needfield",!hasValue);
   });
-})
-
-const radio = document.getElementsByName("paytype");
+});
 
 radio.forEach((radioButton) => {
   radioButton.addEventListener("change", function () {
     document.querySelectorAll(".type-div").forEach((div) => {
-      div.classList.remove("bg-border-lime");
-      div.classList.add("border-black");
+      div.classList.replace("bg-border-lime","border-black");
     });
     if (radioButton.checked) {
       const parentDiv = radioButton.closest(".type-div");
-      parentDiv.classList.remove("border-black");
-      parentDiv.classList.add("bg-border-lime");
+      parentDiv.classList.replace("border-black","bg-border-lime");
       radiop.classList.add("d-none");
     }
   });
@@ -92,8 +83,7 @@ function calculate() {
     const bigTitleResult = document.getElementById("big-title-result");
     const overPayDiv = document.getElementById("over-pay-div");
     function addResultRmEmptycal() {
-      emptyCalculate.classList.remove("d-flex");
-      emptyCalculate.classList.add("d-none");
+      emptyCalculate.classList.replace("d-flex","d-none");
       resultCalculate.classList.remove("d-none");
     }
     if (selectedvalue == "Repayment") {
@@ -139,13 +129,11 @@ function setEmpty() {
   for (let i = 0; i < error.length; i++) {
     error[i].classList.add("d-none");
   }
-  emptyCalculate.classList.remove("d-none");
-  emptyCalculate.classList.add("d-flex");
+  emptyCalculate.classList.replace("d-none","d-flex");
   resultCalculate.classList.add("d-none");
 
   document.querySelectorAll(".type-div").forEach((div) => {
-    div.classList.remove("bg-border-lime");
-    div.classList.add("border-black");
+    div.classList.replace("bg-border-lime","border-black");
   });
 
   array.forEach((i) => {
