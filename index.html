@@ -27,20 +27,19 @@
             </h3>
             <input class="btn" id="clear-all" onclick="setEmpty()" type="reset" value="Clear All" />
           </div>
-          <label for="amount" class="mb-2">Mortgage Amount</label><br />
-          <div id="amount-div" class="d-inline-block position-relative overflow-hidden col-12 mb-2">
-            <input id="amount" type="number" class="w-100 pb-2 pt-2 rounded-2" style="padding-left: 10%" />
+          <div id="amount-div" class="overflow-hidden col-12 mb-2">
+            <label for="amount" class="mb-2">Mortgage Amount</label><br/>
+            <div class="position-relative">
+              <input id="amount" type="number" class="w-100 pb-2 pt-2 rounded-2" style="padding-left: 10%" />
             <span
               class="rounded-start-2 position-absolute opacity-50 start-0 bottom-0 top-0 d-flex justify-content-center align-items-center border border-1 border-black"
               style="width: 10%;background-color: hsl(202, 86%, 94%);pointer-events: none;"><b>$</b></span>
-          </div>
-          <p id="amount-p" class="error d-none text-danger"></p>
-          <div class="d-flex justify-content-between">
-            <label class="col-5 mb-2" for="terms">Mortgage Terms</label>
-            <label class="col-5 mb-2" for="rate">Mortgage Rate</label>
+            </div>
+              <p class="error d-none text-danger"></p>
           </div>
           <div class="d-flex row-cols-2 justify-content-between mb-2">
-            <div id="terms-div" class="d-inline-block overflow-hidden col-5">
+            <div id="terms-div" class="overflow-hidden col-5">
+              <label class="mb-2" for="terms">Mortgage Terms</label>
               <div class="position-relative">
                 <input id="terms" type="number" class="pb-2 pt-2 w-100 rounded-2" style="padding-right: 25%" />
                 <span
@@ -52,9 +51,10 @@
                       pointer-events: none;
                     "><b>year</b></span>
               </div>
-              <p id="terms-p" class="error d-none text-danger"></p>
+              <p class="error d-none text-danger"></p>
             </div>
             <div id="rate-div" class="d-inline-block overflow-hidden col-5">
+              <label class="mb-2" for="rate">Mortgage Rate</label>
               <div class="position-relative">
                 <input id="rate" type="number" class="pb-2 pt-2 w-100 rounded-2" style="padding-right: 25%" />
                 <span
@@ -65,19 +65,21 @@
                       pointer-events: none;
                     "><b>%</b></span>
               </div>
-              <p id="rate-p" class="error d-none text-danger"></p>
+              <p class="error d-none text-danger"></p>
             </div>
           </div>
+          <div class="mb-4">
           <label class="mb-1" for="type1">Mortgage Type</label>
           <div class="align-items-center type-div d-flex mb-2 col-12 border border-1 border-black ps-2 rounded-2 mt-2">
             <input class="w-auto" type="radio" name="paytype" value="Repayment" id="type1" />
             <label class="w-100 p-2" for="type1">Repayment</label>
           </div>
-          <div class="align-items-center type-div d-flex mb-4 col-12 border border-1 border-black ps-2 rounded-2 mt-2">
+          <div class="align-items-center type-div d-flex col-12 border border-1 border-black ps-2 rounded-2 mt-2">
             <input class="w-auto" type="radio" name="paytype" value="Interest-Only" id="type2" />
             <label class="w-100 p-2" for="type2">Interest Only</label>
           </div>
           <p id="radio-p" class="error d-none col-12 text-danger"></p>
+        </div>
         </form>
         <div class="position-relative col-12 col-xl-7 col-md-9">
           <button onclick="calculate()" id="calculate"
